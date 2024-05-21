@@ -42,6 +42,8 @@ class CarController extends Controller
     {
         $data = $request->validated();
 
+        $data['user_id'] = Auth::user()->id;
+
         Car::create($data);
 
         return Redirect::route('car');
